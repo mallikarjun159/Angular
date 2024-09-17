@@ -1,3 +1,9 @@
-<p>login works!</p>
-<label for="name"><input type="text" name="uname" />
- 
+<p> Login</p>
+
+<form [formGroup]="name"  (ngSubmit)="onSubmit()">
+<label for="username">Name: </label><input type="text" name="username" formControlName="firstname" />
+<div *ngIf="name.controls.firstname.touched && !name.controls.firstname.valid "> form is invalid</div>
+<label for="password">Password: </label><input type="password" name="password" formControlName="password" />
+<div *ngIf="name.controls.firstname.touched && !name.controls.firstname.valid "> form is invalid</div>
+<button [disabled]="!name.valid">submit</button>
+</form>
