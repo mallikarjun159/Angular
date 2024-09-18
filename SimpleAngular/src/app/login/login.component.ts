@@ -16,7 +16,12 @@ export class LoginComponent {
    { firstname: new FormControl('',Validators.required),
       password: new FormControl('',[Validators.required,  Validators.pattern(/^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}$/)])
    },
-   
+//    ^ - start of string (implicit in string regex pattern)
+// (?=\D*\d) - there must be 1 digit
+// (?=[^a-z]*[a-z]) - there must be 1 lowercase ASCII letter
+// (?=[^A-Z]*[A-Z]) - there must be 1 uppercase ASCII letter
+// .{8,30} - any 8 to 30 chars other than line break chars
+// $ - end of string (implicit in string regex pattern).
   ) 
   onSubmit(){
    // console.log(this.name.value.firstname) // get firstname from the form data;
@@ -26,3 +31,4 @@ export class LoginComponent {
   }
 
 }
+ 
